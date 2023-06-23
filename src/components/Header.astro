@@ -1,0 +1,55 @@
+<header class="dark:bg-gray-800 dark:text-gray-100">
+	<div class="container flex relative justify-between mx-auto md:justify-center">
+		<a rel="noopener noreferrer" href="#" aria-label="Back to homepage" class="absolute flex items-center p-2">
+            <img src="logo-ics.png" class="w-full h-auto" alt="Logo Indonesian Custom Show">
+		</a>
+    <!-- NAVIGATION MENU -->
+    <ul id="nav-menu" class="bg-black flex flex-col justify-between items-center fixed w-full p-4 z-10 text-white">
+		<!-- USING CHECKBOX HACK -->
+		<input type="checkbox" id="checkbox_toggle" class="hidden peer/menu" />
+		<label for="checkbox_toggle" class="hamburger md:hidden">&#9776;</label>
+  
+		<!-- NAVIGATION MENUS -->
+		<div class="menu hidden peer-checked/menu:flex peer-checked/menu:flex-col peer-checked/menu  
+		md:flex p-3 justify-center gap-4 font-fira">
+  
+		  <li class="hover:font-bold hover:px-5 hover:text-xl"><a href="/">Home</a></li>  
+		  <li><a href="/">Pricing</a></li>
+		  <li class="hover:font-bold hover:px-5 hover:text-xl"><a href="/">Contact</a></li>
+		  		  <li><a href="/">Contact</a></li>
+
+					<li><a href="/">Contact</a></li>
+
+					<li><a href="/">Contact</a></li>
+
+					<li><a href="/">Contact</a></li>
+
+					<li><a href="/">Contact</a></li>
+
+					<li><a href="/">Contact</a></li>
+
+		</div>
+	  </ul>
+  
+	</div>
+</header>
+
+<script>
+const hero = document.getElementById('hero');
+const navbar = document.getElementById('nav-menu');
+
+  // Create an Intersection Observer instance
+  const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    // Check if the section is completely out of view
+    if (!entry.isIntersecting && entry.intersectionRatio === 0) {
+      navbar.classList.remove('hidden');
+    } else {
+	  navbar.classList.add('hidden');
+    }
+  });
+});
+
+observer.observe(hero);
+
+</script>

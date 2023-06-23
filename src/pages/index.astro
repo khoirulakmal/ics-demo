@@ -1,81 +1,51 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
+import Header from '../components/Header.astro';
+import Carousel from '../components/Carousel.astro';
+import Teaser from '../components/Teaser.astro';
+import Footer from '../components/Footer.astro';
 ---
 
 <Layout title="Welcome to Astro.">
-	<main>
-		<h1>Welcome to <span class="text-gradient">Astro</span></h1>
-		<p class="instructions">
-			To get started, open the directory <code>src/pages</code> in your project.<br />
-			<strong>Code Challenge:</strong> Tweak the "Welcome to Astro" message above.
-		</p>
-		<ul role="list" class="link-card-grid">
-			<Card
-				href="https://docs.astro.build/"
-				title="Documentation"
-				body="Learn how Astro works and explore the official API docs."
-			/>
-			<Card
-				href="https://astro.build/integrations/"
-				title="Integrations"
-				body="Supercharge your project with new frameworks and libraries."
-			/>
-			<Card
-				href="https://astro.build/themes/"
-				title="Themes"
-				body="Explore a galaxy of community-built starter themes."
-			/>
-			<Card
-				href="https://astro.build/chat/"
-				title="Community"
-				body="Come say hi to our amazing Discord community. ❤️"
-			/>
-		</ul>
+	<Header></Header>
+	<main class="space-y-4">
+		<section id="hero" class="text-white w-full">
+				<video playsinline autoplay muted loop poster="IMG_Hero.webp" id="bgvideo" class="w-full" style="background-image: url(IMG_Hero.webp)">
+				<source src="hero.mp4" type="video/mp4">
+				</video>
+		</section>
+		<section id="featured" class="flex flex-col-reverse md:flex-row justify-center md:mx-20 md:space-x-5">
+			<div class="md:w-1/2 p-10 md:py-20 bg-black font-fira text-white overflow-hidden">
+				<h2 class="text-sm font-light">Show and Shine</h2>
+				<h1 class="text-4xl font-bold group">
+					<a href="#">
+						<span class='bg-left-bottom bg-gradient-to-r from-white to-white bg-[length:0%_2px] bg-no-repeat group-hover:bg-[length:100%_2px] transition-all duration-[3000ms] ease-out'>
+							Lorem ipsum dolor sitLorem ipsum dolor sit
+						</span>
+					</a>
+				</h1>
+				<article class="hidden md:block text-sm font-light mt-8">
+					<p>
+						Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris. Maecenas vitae mattis tellus.				
+					</p>
+				</article>
+			</div>
+			<div class="md:w-1/2">
+				<a rel="noopener noreferrer" href="#" aria-label="Featured Image Link">
+					<img src="IMG_Hero.webp" class="w-full h-full" alt="Featured Image">
+				</a>			
+			</div>
+		</section>
+		<section id="carousel">
+			<Carousel></Carousel>
+		</section>
+		<section id="collections" class="flex flex-col md:grid md:grid-cols-2 gap-4 md:px-20 py-5 bg-gradient-to-t from-black">
+			<div class="relative"><Teaser></Teaser></div>
+			<div class="relative md:row-span-2"><Teaser></Teaser></div>
+			<div class="relative"><Teaser></Teaser></div>
+			<div class="relative"><Teaser></Teaser></div>
+			<div class="relative"><Teaser></Teaser></div>
+		</section>
 	</main>
+	<Footer></Footer>
 </Layout>
-
-<style>
-	main {
-		margin: auto;
-		padding: 1.5rem;
-		max-width: 60ch;
-	}
-	h1 {
-		font-size: 3rem;
-		font-weight: 800;
-		margin: 0;
-	}
-	.text-gradient {
-		background-image: var(--accent-gradient);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-size: 400%;
-		background-position: 0%;
-	}
-	.instructions {
-		line-height: 1.6;
-		margin: 1rem 0;
-		border: 1px solid rgba(var(--accent), 25%);
-		background-color: white;
-		padding: 1rem;
-		border-radius: 0.4rem;
-	}
-	.instructions code {
-		font-size: 0.875em;
-		font-weight: bold;
-		background: rgba(var(--accent), 12%);
-		color: rgb(var(--accent));
-		border-radius: 4px;
-		padding: 0.3em 0.45em;
-	}
-	.instructions strong {
-		color: rgb(var(--accent));
-	}
-	.link-card-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
-		gap: 1rem;
-		padding: 0;
-	}
-</style>
